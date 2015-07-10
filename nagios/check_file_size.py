@@ -4,12 +4,12 @@ from stat import *
 
 #################
 #Set variables
-file = '/path/to/file'
-#In bytes ~200MB
-critical = 200
-#In bytes ~100MB
-warning = 100
+file = sys.argv[3]
+#In bytes
+warning = int(sys.argv[1])
+critical = int(sys.argv[2])
 #################
+
 
 try:
     st = os.stat(file)
@@ -32,3 +32,4 @@ elif size >= warning:
 else:
     print "File SizeE OK: %s is %s MB" % (file, size)
     sys.exit(0)
+
