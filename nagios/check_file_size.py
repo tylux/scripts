@@ -53,5 +53,5 @@ elif size >= warning:
     print "File Size WARNING: %s is %s MB" % (file, size)
     sys.exit(1)
 else:
-    print "File SizeE OK: %s is %s MB" % (file, size)
+    print "File Size OK: %s is %s MB" % (file, size)
     sys.exit(0)
