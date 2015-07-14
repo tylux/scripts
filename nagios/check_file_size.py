@@ -1,7 +1,7 @@
 #!/usr/bin/python
 import os, sys
 from stat import *
-from optparse import OptionParser, OptionGroup
+from optparse import OptionParser
 
 
 usage = "Usage: %prog -f path-to-file [-w] [-c]"
