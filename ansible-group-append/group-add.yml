@@ -1,0 +1,20 @@
+---
+- name: Add all non system users to a group
+  hosts: all
+  user: ubuntu
+  gather_facts: yes
+  sudo: yes
+
+  vars:
+    group_name: www-data
+
+  tasks:
+    - name: list all non system user accounts that are GID higher than 1000 don't equal 65534 which is user nobady
+      command: awk -F'[/:]' '{if ($3 >= 1000 && $3 != 65534) print $1}' /etc/passwd
+      register: non_system_users
+    - debug: var=non_system_users
+
+    - name: adding all non system users to {{ group_name }} group
+      user: name={{ item }} groups={{ group_name }} append=yes
+      with_items:
+        - '{{ non_system_users.stdout_lines }} '
