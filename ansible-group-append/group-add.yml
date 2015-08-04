@@ -9,7 +9,7 @@
     group_name: www-data
 
   tasks:
-    - name: list all non system user accounts that are GID higher than 1000 don't equal 65534 which is user nobady
+    - name: list all non system user accounts that have a UID higher than 1000 and don't equal UID 65534 which is user nobody
       command: awk -F'[/:]' '{if ($3 >= 1000 && $3 != 65534) print $1}' /etc/passwd
       register: non_system_users
     - debug: var=non_system_users
