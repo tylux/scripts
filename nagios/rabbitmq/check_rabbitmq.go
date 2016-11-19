@@ -8,9 +8,9 @@ import (
 )
 
 func main() {
-	username := flag.String("u", "guest", "-u RabbitMQ Username, defaults to guet ")
-	password := flag.String("p", "guest", "-p RabbitMQ Password, defaults to guest")
-	rabbitHost := flag.String("H", "localhost", "-H RabbitMQ Host, defaults to localhost")
+	username := flag.String("u", "guest", "-u RabbitMQ Username")
+	password := flag.String("p", "guest", "-p RabbitMQ Password")
+	rabbitHost := flag.String("H", "localhost", "-H RabbitMQ Host")
 	port := flag.String("P", "15672", "-P RabbitMQ Port, defaults to 15672")
 	flag.Parse()
 	checkAliveness(*username, *password, *port, *rabbitHost)
